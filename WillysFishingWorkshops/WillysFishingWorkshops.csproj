@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <ProjectGuid>{406029F9-0B20-4B00-B418-3D9D7DA99B8C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WillysFishingWorkshops</RootNamespace>
+    <AssemblyName>WillysFishingWorkshops</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <EnableHarmony>true</EnableHarmony>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>manifest.json</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="ModEntry.cs" />
+    <Compile Include="ModUtility.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI/FishComponent.cs" />
+    <Compile Include="UI/FishListSection.cs" />
+    <Compile Include="UI/FishMenu.cs" />
+    <Compile Include="UI/InfoBoardMenu.cs" />
+    <Compile Include="UI/InfoCornerBox.cs" />
+    <Compile Include="UI/InfoSection.cs" />
+    <Compile Include="UI/RandomFishComponent.cs" />
+    <Compile Include="UI/SearchComponent.cs" />
+    <Compile Include="UI/SearchSection.cs" />
+    <Compile Include="UI/SearchTextBox.cs" />
+    <Compile Include="UI/TagComponent.cs" />
+    <Compile Include="UI/TagContainerComponent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers/EnumExtensions.cs" />
+    <Compile Include="Helpers/ExtensionsMethods.cs" />
+    <Compile Include="Helpers/GameHelper.cs" />
+    <Compile Include="Helpers/TagColorHelper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Events/SimpleEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models/Dimension.cs" />
+    <Compile Include="Models/Direction.cs" />
+    <Compile Include="Models/DrawBoxMode.cs" />
+    <Compile Include="Models/Fish.cs" />
+    <Compile Include="Models/FishDifficulty.cs" />
+    <Compile Include="Models/MessageType.cs" />
+    <Compile Include="Models/SortMode.cs" />
+    <Compile Include="Models/WorkshopTicket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Handlers/CustomSnapHandler.cs" />
+    <Compile Include="Handlers/GameStateHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GameEvents/WillysFishingWorkshopsEvent.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Patches/BeachPatch.cs" />
+    <Compile Include="Patches/BobberBarPatch.cs" />
+    <Compile Include="Patches/ChatBoxPatch.cs" />
+    <Compile Include="Patches/FarmerPatch.cs" />
+    <Compile Include="Patches/FishingRodPatch.cs" />
+    <Compile Include="Patches/GameLocationPatch.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Debug/ScreenDebug.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="manifest.json" />
+    <None Include="i18n/default.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.1.1" />
+    <PackageReference Include="Pathoschild.Stardew.ModTranslationClassBuilder" Version="2.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+</Project>
