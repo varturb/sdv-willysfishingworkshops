@@ -37,9 +37,6 @@ namespace WillysFishingWorkshops.Handlers
       ModUtility.Helper.Events.Display.Rendered += OnRendered;
 
       InitFishItems();
-      FishList = baseFishList;
-      PerformSort();
-      FilterValue = string.Empty;
     }
 
     public static void BuyTicket(int option)
@@ -118,29 +115,11 @@ namespace WillysFishingWorkshops.Handlers
       }
     }
 
-    private static Fish GetRandomFish(bool allFish = false)
-    {
-      var rnd = new Random();
-
-      if (allFish)
-      {
-        var index = rnd.Next(0, baseFishList.Count);
-        return baseFishList[index];
-      }
-
-      if (FishList.Count > 0)
-      {
-        var index = rnd.Next(0, FishList.Count);
-        return FishList[index];
-      }
-
-      return baseFishList.First();
-    }
-
-    private static void InitFishItems()
+    public static void InitFishItems()
     {
       var data = DataLoader.Fish(Game1.content);
-
+      baseFishList.Clear();
+      
       foreach (var dataItem in data)
       {
         var item = ItemRegistry.Create(dataItem.Key);
@@ -151,6 +130,10 @@ namespace WillysFishingWorkshops.Handlers
           baseFishList.Add(new Fish(item, difficultyLevel));
         }
       }
+      
+      FishList = baseFishList;
+      PerformSort();
+      FilterValue = string.Empty;
     }
 
     public static void PerformSearchForTag(string tag)
@@ -210,6 +193,25 @@ namespace WillysFishingWorkshops.Handlers
       };
       ModUtility.Monitor.Log($"GameStateHandler.SortByName: {NameSortMode}", LogLevel.Trace);
       PerformSort();
+    }
+
+    private static Fish GetRandomFish(bool allFish = false)
+    {
+      var rnd = new Random();
+
+      if (allFish)
+      {
+        var index = rnd.Next(0, baseFishList.Count);
+        return baseFishList[index];
+      }
+
+      if (FishList.Count > 0)
+      {
+        var index = rnd.Next(0, FishList.Count);
+        return FishList[index];
+      }
+
+      return baseFishList.First();
     }
 
     private static void PerformSort()

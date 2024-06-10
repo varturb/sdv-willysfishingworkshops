@@ -120,6 +120,10 @@ namespace WillysFishingWorkshops
       {
         GameStateHandler.Init();
       };
+      Helper.Events.Content.LocaleChanged += delegate
+      {
+        GameStateHandler.InitFishItems();
+      };
 
       I18n.Init(Helper.Translation);
     }
