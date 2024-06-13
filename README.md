@@ -1,3 +1,3 @@
 # sdv-willysfishingworkshops
 
-MagicScepter mod for Stardew Valley game.
+WillysFishingWorkshops mod for Stardew Valley game.
